@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo HTML</title>
+</head>
+<body>
+    <header>
+        <h1>Ejemplo HTML</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Principal</a></li>
+            <li><a href="#parrafos">Párrafos</a></li>
+            <li><a href="#enlaces">Enlaces</a></li>
+            <li><a href="#listas">Listas</a></li>
+            <li><a href="#">Tablas</a></li>
+            <li><a href="#">Multimedia</a></li>
+            <li><a href="#">Formularios</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article id="html">
+            <h2>HTML</h2>
+
+            <!-- section#parrafos -->
+            <section id="parrafos">
+                <h3>Párrafos</h3>
+
+                <!-- p*3>lorem7 -->
+                <p><strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing.</p>
+                <p>Sint <em>porro</em> quis <span class="iluminado">saepe</span> unde, ut neque?</p>
+                <p><span class="iluminado verde">Ex</span> assumenda quasi beatae molestias, quam laudantium!</p>
+
+                <p>
+                    Estaba en la calle<br>
+                    Me encontré un gato<br>
+                    Me lo quedé<br>
+                </p>
+
+                <pre>
+public class Hola {
+    public static void main(String[] args) {
+        System.out.println("Hola");
+    }
+}
+                </pre>
+            </section>
+
+            <section id="enlaces">
+                <h3>Enlaces</h3>
+
+                <a href="https://www.google.es">Google</a>
+                <a href="https://copilot.microsoft.com">Copilot</a>
+                <a href="https://www.freecodecamp.com/es">FreeCodeCamp</a>
+
+                <a href="mailto:javier@email.net">javier@email.net</a>
+                <a href="tel:944324321">944324321</a>
+
+                <a href="pagina2.html">Página 2</a>
+            </section>
+
+            <section id="listas">
+                <h3>Listas</h3>
+
+                <ul>
+                    <li>Uno</li>
+                    <li>Dos</li>
+                    <li>Tres</li>
+                </ul>
+
+                <ol>
+                    <li>Uno</li>
+                    <li>Dos
+                        <ol>
+                            <li>Dos uno</li>
+                            <li>Dos dos</li>
+                        </ol>
+                    </li>
+                    <li>Tres</li>
+                </ol>
+
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>Hyper Text Transfer Protocol</dd>
+
+                    <dt>CSS</dt>
+                    <dd>Cascade Style Sheets</dd>
+                </dl>
+            </section>
+
+            <section id="tablas">
+                <h3>Tablas</h3>
+
+                <table border="1">
+                    <caption>Contactos</caption>
+
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th colspan="2">Datos del contacto</th>
+                        </tr>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td>Javier</td>
+                            <td>Lete</td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>María</td>
+                            <td>González</td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>Carlos</td>
+                            <td>Martínez</td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>Laura</td>
+                            <td>Fernández</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>David</td>
+                            <td>Hernández</td>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <td>Ana</td>
+                            <td>Rodríguez</td>
+                        </tr>
+                        <tr>
+                            <th>7</th>
+                            <td>Juan</td>
+                            <td>García</td>
+                        </tr>
+                        <tr>
+                            <th>8</th>
+                            <td>Sofía</td>
+                            <td>López</td>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td>Pablo</td>
+                            <td>Sánchez</td>
+                        </tr>
+                        <tr>
+                            <th>10</th>
+                            <td>Elena</td>
+                            <td>Pérez</td>
+                        </tr>
+                        
+                        
+                        <!-- tr*10>th>{$}^td>{Nombre $}^td>{Apellidos $}
+                        tr*10>(th>{$})+(td>{Nombre $})+(td>{Apellidos $}) -->
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+        </article>
+    </main>
+    
+    <aside>
+        <!-- nav>ul>li*3>a>{Enlace $} -->
+        <nav>
+            <ul>
+                <li><a href="#">Enlace 1</a></li>
+                <li><a href="#">Enlace 2</a></li>
+                <li><a href="#">Enlace 3</a></li>
+            </ul>
+        </nav>
+    </aside>
+    
+    <footer>
+        <p>&copy;2024 Javier Lete</p>
+        <div>
+            <a href="#">Arriba</a>
+        </div>
+    </footer>
+</body>
+</html>
