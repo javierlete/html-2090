@@ -1,14 +1,50 @@
+/* RESETEO */
+
+/*
+* {
+     margin: 0;
+    padding: 0;
+}
+*/
+
+/* VARIABLES DE CSS */
+:root {
+    --titulo: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    --letra: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    --tinta: black;
+    --fondo: white;
+    --fondo-secundario: lightgray;
+    --enlace: rgb(92, 92, 189);
+
+    --margen-grande: 1rem;
+    --margen: 0.5rem;
+    --margen-pequeno: 0.25rem;
+
+    --borde: 1px solid gray;
+    --radio: var(--margen-pequeno);
+}
+
+/* CARACTERÍSTICAS GLOBALES */
+
 body {
-    font-family: sans-serif;
+    font-family: var(--letra);
+
+    color: var(--tinta);
+    background-color: var(--fondo);
 
     margin: 0;
 }
 
-header {
-    color: white;
-    background-color: black;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--titulo);
 
-    padding: 0.5rem;
+    text-align: center;
 }
 
 h1 {
@@ -16,11 +52,128 @@ h1 {
     text-align: center;
 }
 
+h3 {
+    border-bottom: var(--borde);
+
+    font-variant: small-caps;
+
+    &::before {
+        color: var(--fondo-secundario);
+        content: '<';
+    }
+    
+    &::after {
+        color: var(--fondo-secundario);
+        content: '>';
+    }
+}
+
+p {
+    line-height: calc(1rem + var(--margen-pequeno));
+}
+
+pre {
+    background-color: var(--fondo-secundario);
+
+    padding: var(--margen);
+
+    border: var(--borde);
+
+    border-radius: var(--radio);
+}
+
 a {
     text-decoration: none;
-    color: rgb(92, 92, 189);
-    
+    color: var(--enlace);
+
     &:hover {
         text-decoration: underline;
+    }
+}
+
+/* CLASES */
+
+.verde {
+    color: green;
+}
+
+.iluminado {
+    background-color: yellow;
+    padding: var(--margen-pequeno);
+    border-radius: var(--radio);
+}
+
+.verde.iluminado {
+    background-color: green;
+    color: white;
+}
+
+/* ESTRUCTURA */
+
+header {
+    color: var(--fondo);
+    background-color: var(--tinta);
+
+    padding: var(--margen);
+}
+
+body>nav {
+    background-color: var(--fondo-secundario);
+
+    /* padding: var(--margen) 0; */
+
+    & ul {
+        list-style: none;
+        text-align: center;
+
+        margin: 0;
+        padding: 0;
+
+        & a {
+            display: inline-block;
+
+            width: 100%;
+
+            padding: var(--margen-pequeno);
+
+            &:hover {
+                text-decoration: none;
+
+                background-color: var(--enlace);
+                color: var(--fondo-secundario);
+            }
+        }
+    }
+}
+
+main {
+    padding: var(--margen);
+}
+
+#enlaces {
+    & a {
+        display: inline-block;
+        width: 100%;
+
+        margin: var(--margen-pequeno) 0;
+
+        &::before {
+            content: '- ';
+        }
+    }
+}
+
+#listas {
+    & ol li li {
+        list-style: lower-alpha;
+    }
+
+    & dt {
+        font-weight: bold;
+    }
+
+    & dd {
+        margin-left: 0;
+        margin-bottom: var(--margen);
     }
 }
