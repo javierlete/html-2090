@@ -1,11 +1,8 @@
 /* RESETEO */
 
-/*
 * {
-     margin: 0;
-    padding: 0;
+    box-sizing: border-box;
 }
-*/
 
 /* VARIABLES DE CSS */
 :root {
@@ -23,6 +20,8 @@
 
     --borde: 1px solid gray;
     --radio: var(--margen-pequeno);
+
+    --sombra: 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.5);
 }
 
 /* CARACTERÍSTICAS GLOBALES */
@@ -61,7 +60,7 @@ h3 {
         color: var(--fondo-secundario);
         content: '<';
     }
-    
+
     &::after {
         color: var(--fondo-secundario);
         content: '>';
@@ -110,7 +109,8 @@ a {
 
 /* ESTRUCTURA */
 
-header {
+header,
+footer {
     color: var(--fondo);
     background-color: var(--tinta);
 
@@ -176,4 +176,139 @@ main {
         margin-left: 0;
         margin-bottom: var(--margen);
     }
+}
+
+#tablas {
+    & table {
+        width: 100%;
+        border-collapse: collapse;
+
+    }
+
+    & caption {
+        padding: var(--margen);
+        background-color: var(--fondo-secundario);
+        text-transform: uppercase;
+    }
+
+    & thead,
+    & tfoot {
+        color: var(--fondo);
+        background-color: var(--tinta);
+    }
+
+    & tbody tr:nth-child(even) {
+        background-color: var(--fondo-secundario)
+    }
+
+    & td,
+    & th {
+        border: var(--borde);
+        padding: var(--margen-pequeno);
+    }
+
+    & tr {
+        & :first-child {
+            text-align: end;
+        }
+    }
+
+    & th:nth-child(2),
+    th:last-child {
+        text-align: start;
+    }
+}
+
+#multimedia {
+
+    &>*,
+    & img {
+        width: 100%;
+        border: 0;
+
+        margin: var(--margen) 0;
+    }
+
+    .aspecto {
+        position: relative;
+        width: 100%;
+
+        padding-bottom: calc(9/16 * 100%);
+
+        &>iframe {
+            position: absolute;
+
+            border: 0;
+
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+#formularios {
+
+    fieldset,
+    input,
+    textarea,
+    select,
+    button {
+        border: var(--borde);
+        border-radius: var(--radio);
+
+        padding: var(--margen-pequeno);
+
+        margin-bottom: var(--margen);
+    }
+
+    fieldset {
+        padding: var(--margen-grande);        
+    }
+
+
+    & input,
+    textarea,
+    select,
+    button {
+        width: 100%;
+    }
+
+    & button,
+    input[type=submit],
+    input[type=reset] {
+        background-color: var(--fondo-secundario);
+    }
+}
+
+aside {
+    background-color: var(--fondo-secundario);
+
+    & ul {
+        margin: 0;
+        padding: var(--margen);
+
+        & li {
+            text-align: center;
+            padding: var(--margen-pequeno);
+        }
+    }
+}
+
+#arriba {
+    position: fixed;
+
+    bottom: 0;
+    right: 0;
+
+    margin: var(--margen-grande);
+    padding: var(--margen-pequeno);
+
+    background-color: var(--fondo-secundario);
+
+    border: var(--borde);
+    border-radius: var(--radio);
+
+    box-shadow: var(--sombra);
 }

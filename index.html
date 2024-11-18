@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplo HTML</title>
-    
+
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
@@ -36,7 +36,7 @@
 
                 <!-- p*3>lorem7 -->
                 <p><strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing.</p>
-                <p>Sint <em>porro</em> quis <span class="iluminado">saepe</span> unde, ut neque?</p>
+                <p>Sint <em class="verde">porro</em> quis <span class="iluminado">saepe</span> unde, ut neque?</p>
                 <p><span class="iluminado verde">Ex</span> assumenda quasi beatae molestias, quam laudantium!</p>
 
                 <p>
@@ -196,21 +196,26 @@
 
                 <video src="videos/big_buck_bunny_720_stereo.mp4" controls></video>
 
-                <iframe
+                <div class="aspecto">
+                    <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762268580205!2d-2.9161669244363884!3d43.25640397112368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1731426486801!5m2!1ses!2ses"
                     allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-                <iframe 
+                </div>
+                <div class="aspecto">
+                    <iframe
                     src="https://open.spotify.com/embed/album/5IpsjiT5EccI9VpkRBFh0d?utm_source=generator&theme=0"
                     allowfullscreen=""
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"></iframe>
-
-                <iframe src="https://www.youtube.com/embed/YpZLZxTHuRE?si=4avCfMxuFPDER1CV"
+                </div>
+                <div class="aspecto">
+                    <iframe src="https://youtube.com/embed/RSWGftQpbV4"
                     title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+                    web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
             </section>
 
             <section id="formularios">
@@ -295,7 +300,7 @@
 
     <footer>
         <p>&copy;2024 Javier Lete</p>
-        <div>
+        <div id="arriba">
             <a href="#">Arriba</a>
         </div>
     </footer>
