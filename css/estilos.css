@@ -312,3 +312,101 @@ aside {
 
     box-shadow: var(--sombra);
 }
+
+@media (min-width: 768px) {
+    body>nav {
+        position: sticky;
+        top: 0;
+
+        z-index: 1;
+
+        & ul {
+            display: flex;
+        }
+    }
+
+    main {
+        padding: calc(var(--margen-grande) * 3);
+    }
+
+    #html {
+        display: flex;
+        flex-wrap: wrap;
+
+        &>* {
+            width: 100%;
+        }
+
+        #parrafos {
+            width: 50%;
+        }
+
+        #enlaces {
+            width: 20%;
+        }
+
+        #listas {
+            width: 30%;
+        }
+    }
+
+    #formularios {
+        display: flex;
+        flex-wrap: wrap;
+
+        &>* {
+            width: 100%;
+        }
+
+        & form:first-of-type, & form:nth-of-type(2) {
+            width: 50%;
+
+            & fieldset {
+                height: 100%;
+            }
+        }
+
+        & form:last-of-type {
+            margin-top: var(--margen-grande);
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: var(--margen);
+
+            &>* {
+                width: calc(33.33333% - var(--margen) * 2 / 3);
+                margin: 0;
+            }
+
+            &>.inputs {
+                order: 0;
+            }
+
+            &>.checks {
+                order: 1;
+            }
+
+            &>.otros {
+                order: 2;
+            }
+
+            &>.grandes {
+                order: 3;
+            }
+
+            &>.botones {
+                order: 4;
+            }
+
+            &>[type=color] {
+                height: auto;
+            }
+        }
+    }
+
+    aside>nav ul {
+        display: flex;
+
+        list-style: none;
+    }
+}
