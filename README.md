@@ -5,8 +5,14 @@
 # Descargas
 
 - Visual Studio Code: https://code.visualstudio.com
+
+# Referencias
+
 - Referencia de etiquetas del WHATWG: https://html.spec.whatwg.org/multipage/#toc-semantics
 - Can I Use: https://caniuse.com
+- Position de MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/position
+- Referencia de Flex: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+- Referencia de Grid: https://css-tricks.com/snippets/css/complete-guide-grid/
 
 # Ejercicios
 
@@ -16,3 +22,5 @@
 
 - CSS Dinner: https://flukeout.github.io/
 - Flexbox Froggy: https://flexboxfroggy.com/#es
+- Grid Garden: https://cssgridgarden.com/#es
+
