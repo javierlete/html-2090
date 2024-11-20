@@ -1,3 +1,6 @@
+/* TIPOS DE LETRA */
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
 /* RESETEO */
 
 * {
@@ -6,8 +9,8 @@
 
 /* VARIABLES DE CSS */
 :root {
-    --titulo: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    --letra: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    --titulo: "Karla", sans-serif;
+    --letra: "Nunito Sans", sans-serif;
 
     --tinta: black;
     --fondo: white;
