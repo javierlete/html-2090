@@ -409,4 +409,8 @@ aside {
 
         list-style: none;
     }
+
+    #arriba {
+        display: none;
+    }
 }
