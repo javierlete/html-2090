@@ -264,7 +264,7 @@ main {
     }
 
     fieldset {
-        padding: var(--margen-grande);        
+        padding: var(--margen-grande);
     }
 
 
@@ -358,7 +358,8 @@ aside {
             width: 100%;
         }
 
-        & form:first-of-type, & form:nth-of-type(2) {
+        & form:first-of-type,
+        & form:nth-of-type(2) {
             width: 50%;
 
             & fieldset {
@@ -423,7 +424,8 @@ aside {
 
         grid-template-columns: 1fr 1fr;
 
-        & h3, & audio {
+        & h3,
+        & audio {
             grid-column-start: 1;
             grid-column-end: 3;
         }
@@ -453,11 +455,11 @@ aside {
 
         grid-template-columns: 5fr 3fr 2fr 5fr;
 
-        grid-template-areas: 
-        "titulo-html    titulo-html     titulo-html     titulo-html"
-        "parrafos       listas          enlaces         tablas     "
-        "multimedia     multimedia      formularios     formularios"
-        "multimedia     multimedia      formularios     formularios";
+        grid-template-areas:
+            "titulo-html    titulo-html     titulo-html     titulo-html"
+            "parrafos       listas          enlaces         tablas     "
+            "multimedia     multimedia      formularios     formularios"
+            "multimedia     multimedia      formularios     formularios";
 
         &>* {
             width: 100% !important;
@@ -495,7 +497,8 @@ aside {
     #multimedia {
         grid-template-columns: 1fr 1fr 1fr;
 
-        & h3, & audio {
+        & h3,
+        & audio {
             grid-column: span 3;
         }
 
@@ -506,6 +509,43 @@ aside {
         & .aspecto:nth-of-type(2) {
             grid-row-start: 4;
             grid-column-start: 3;
+        }
+    }
+}
+
+@media (min-width: 2560px) {
+    body {
+        display: grid;
+
+        grid-template-columns: auto 1fr auto;
+
+        grid-template-areas:
+        "cabecera   cabecera    cabecera"
+        "menu       contenido   anuncios"
+        "pie        pie         pie";
+
+        & nav>ul {
+            flex-direction: column;
+        }
+
+        &>header {
+            grid-area: cabecera;
+        }
+
+        &>nav {
+            grid-area: menu;
+        }
+
+        &>main {
+            grid-area: contenido;
+        }
+
+        &>aside {
+            grid-area: anuncios;
+        }
+
+        &>footer {
+            grid-area: pie;
         }
     }
 }
