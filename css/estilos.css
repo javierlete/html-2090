@@ -443,3 +443,69 @@ aside {
         }
     }
 }
+
+@media (min-width: 1440px) {
+    #html {
+        display: grid;
+        gap: calc(var(--margen-grande) * 5);
+
+        align-items: start;
+
+        grid-template-columns: 5fr 3fr 2fr 5fr;
+
+        grid-template-areas: 
+        "titulo-html    titulo-html     titulo-html     titulo-html"
+        "parrafos       listas          enlaces         tablas     "
+        "multimedia     multimedia      formularios     formularios"
+        "multimedia     multimedia      formularios     formularios";
+
+        &>* {
+            width: 100% !important;
+        }
+
+        &>h2 {
+            grid-area: titulo-html;
+        }
+
+        #parrafos {
+            grid-area: parrafos;
+        }
+
+        #listas {
+            grid-area: listas;
+        }
+
+        #enlaces {
+            grid-area: enlaces;
+        }
+
+        #tablas {
+            grid-area: tablas;
+        }
+
+        #multimedia {
+            grid-area: multimedia;
+        }
+
+        #formularios {
+            grid-area: formularios;
+        }
+    }
+
+    #multimedia {
+        grid-template-columns: 1fr 1fr 1fr;
+
+        & h3, & audio {
+            grid-column: span 3;
+        }
+
+        & video {
+            grid-column: span 2;
+        }
+
+        & .aspecto:nth-of-type(2) {
+            grid-row-start: 4;
+            grid-column-start: 3;
+        }
+    }
+}
