@@ -414,3 +414,32 @@ aside {
         display: none;
     }
 }
+
+@media (min-width: 1024px) {
+    #multimedia {
+        display: grid;
+
+        gap: var(--margen-grande);
+
+        grid-template-columns: 1fr 1fr;
+
+        & h3, & audio {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        & video {
+            grid-row-start: 2;
+            grid-column-start: 2;
+        }
+
+        .aspecto:last-of-type {
+            grid-column-start: 2;
+            grid-row-start: 4;
+        }
+
+        .aspecto:nth-of-type(2) {
+            grid-column: span 2;
+        }
+    }
+}
