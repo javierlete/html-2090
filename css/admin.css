@@ -1,0 +1,122 @@
+/* RESETEO */
+
+* {
+    box-sizing: border-box;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+/* VARIABLES */
+
+:root {
+    --tinta: black;
+    --fondo: white;
+    --fondo-suave: lightgray;
+
+    --borde: 1px solid gray;
+
+    --margen: 0.25rem;
+
+    --sombra: 0.25rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+
+    --letra: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+/* ESTRUCTURA */
+
+body {
+    font-family: var(--letra);
+    font-size: 0.80rem;
+}
+
+fieldset {
+    border: var(--borde);
+    border-radius: var(--margen);
+    box-shadow: var(--sombra);
+
+    padding: calc(var(--margen) * 4);
+}
+
+.boton.peligro {
+    background-color: red;
+}
+
+label {
+    display: inline-block;
+    width: 4rem;
+
+    text-align: end;
+}
+
+input {
+    width: calc(100% - 5rem);
+
+    margin-bottom: var(--margen);
+}
+
+.boton,
+input {
+    display: inline-block;
+
+    text-decoration: none;
+    color: var(--tinta);
+
+    padding: var(--margen);
+    border: var(--borde);
+    border-radius: var(--margen);
+    box-shadow: var(--sombra);
+}
+
+.boton {
+    background-color: var(--fondo-suave);
+}
+
+.tabla {
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+
+    box-shadow: var(--sombra);
+
+    &>caption {
+        box-shadow: var(--sombra);
+        background-color: var(--fondo-suave);
+    }
+
+    &>thead,
+    &>tfoot {
+        color: var(--fondo);
+        background-color: var(--tinta);
+    }
+
+    & td,
+    & th,
+    & caption {
+        padding: var(--margen);
+        border: var(--borde);
+    }
+
+    & th,
+    & td {
+
+        &:first-child,
+        &:nth-child(4) {
+            text-align: end;
+        }
+
+        &:nth-child(2),
+        &:nth-child(3) {
+            text-align: start;
+        }
+
+        &:last-child {
+            display: flex;
+            gap: var(--margen);
+        }
+    }
+}

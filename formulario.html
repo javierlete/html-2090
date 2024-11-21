@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento de producto</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <form action="admin.html">
+        <fieldset>
+            <legend>Mantenimiento de productos</legend>
+
+            <div>
+                <label for="id">Id</label>
+                <input type="number" id="id">
+            </div>
+            <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre">
+            </div>
+            <div>
+                <label for="fecha-caducidad">Caducidad</label>
+                <input type="date" id="fecha-caducidad">
+            </div>
+            <div>
+                <label for="precio">Precio</label>
+                <input type="number" step=".01" id="precio">
+            </div>
+
+            <div>
+                <label></label>
+                <button class="boton">Guardar</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+
+</html>
