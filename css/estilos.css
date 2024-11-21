@@ -1,5 +1,9 @@
 /* TIPOS DE LETRA */
+/* Karla y Nunito */
 @import url(fonts.css);
+
+/* FontAwesome */
+@import url(all.min.css);
 
 /* RESETEO */
 
@@ -299,21 +303,41 @@ aside {
     }
 }
 
-#arriba {
-    position: fixed;
+footer {
+    &>* {
+        text-align: center;
+    }
 
-    bottom: 0;
-    right: 0;
+    & #redes-sociales {
+        list-style: none;
+        display: flex;
 
-    margin: var(--margen-grande);
-    padding: var(--margen-pequeno);
+        justify-content: center;
 
-    background-color: var(--fondo-secundario);
+        padding: 0;
 
-    border: var(--borde);
-    border-radius: var(--radio);
+        & a {
+            color: var(--fondo);
+            padding: var(--margen);
+        }
+    }
 
-    box-shadow: var(--sombra);
+    & #arriba {
+        position: fixed;
+
+        bottom: 0;
+        right: 0;
+
+        margin: var(--margen-grande);
+        padding: var(--margen-pequeno);
+
+        background-color: var(--fondo-secundario);
+
+        border: var(--borde);
+        border-radius: var(--radio);
+
+        box-shadow: var(--sombra);
+    }
 }
 
 @media (min-width: 768px) {
@@ -523,9 +547,9 @@ aside {
         grid-template-columns: auto 1fr auto;
 
         grid-template-areas:
-        "cabecera   cabecera    cabecera"
-        "menu       contenido   anuncios"
-        "pie        pie         pie";
+            "cabecera   cabecera    cabecera"
+            "menu       contenido   anuncios"
+            "pie        pie         pie";
 
         & nav>ul {
             flex-direction: column;
