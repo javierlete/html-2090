@@ -13,6 +13,9 @@
 - Position de MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/position
 - Referencia de Flex: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 - Referencia de Grid: https://css-tricks.com/snippets/css/complete-guide-grid/
+- Fonts de Google: https://fonts.google.com
+- Lorem Picsum: https://picsum.photos
+- FontAwesome: https://fontawesome.com/
 
 # Ejercicios
 
