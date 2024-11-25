@@ -13,6 +13,7 @@
 - Position de MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/position
 - Referencia de Flex: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 - Referencia de Grid: https://css-tricks.com/snippets/css/complete-guide-grid/
+- Diapositivas de html5rocks: https://javierlete.github.io/slides.html5rocks.com/html5.html#landing-slide
 - Fonts de Google: https://fonts.google.com
 - Lorem Picsum: https://picsum.photos
 - FontAwesome: https://fontawesome.com/
