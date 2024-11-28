@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tienda</title>
+    <title>Portátil Ipartek 15</title>
 
     <link rel="icon" href="imgs/shop.svg">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-primary sticky-top" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Tienda</a>
+            <a class="navbar-brand" href="#">Tienda</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -37,14 +37,11 @@
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2 text-bg-light" data-bs-theme="dark" type="search" placeholder="Buscar producto" aria-label="Buscar producto">
+                    <input class="form-control me-2 text-bg-light" data-bs-theme="dark" type="search"
+                        placeholder="Buscar producto" aria-label="Buscar producto">
                     <button class="btn btn-outline-light" type="submit">Buscar</button>
                 </form>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="admin.html">Administración</a>
-                    </li>
-
                     <li class="navbar-text">
                         Javier
                     </li>
@@ -58,13 +55,15 @@
 
     <main class="container my-4">
         <header>
-            <h2 class="display-1">Productos</h2>
+            <h2 class="display-1">Portátil Ipartek 15</h2>
         </header>
 
-        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://picsum.photos/400/300?1" class="card-img-top" alt="...">
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://picsum.photos/800/600" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">Portátil Ipartek 15</h5>
                         <p class="card-text">Portátil de 15" que tiene 16GB, 1TB, y NVIDIA 2070</p>
@@ -73,15 +72,16 @@
                             <li class="list-group-item">16GB de RAM</li>
                             <li class="list-group-item">1TB de NVM</li>
                             <li class="list-group-item">Gráfica NVIDIA RTX 2070</li>
+                            <li class="list-group-item">1.234,56€</li>
                         </ul>
                     </div>
-                    <div class="card-footer p-2 d-flex justify-content-between">
-                        <a class="stretched-link link-underline link-underline-opacity-0" href="detalle.html">Ver detalle</a>
-                        <span>1.234,56€</span>
+                    <div class="card-footer p-2 text-end">
+                        <a class="btn btn-primary" href="#">Comprar</a>
                     </div>
                 </div>
             </div>
         </div>
+
     </main>
 
     <footer class="text-bg-primary p-2 fixed-bottom d-flex justify-content-between">

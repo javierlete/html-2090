@@ -57,31 +57,47 @@
     </nav>
 
     <main class="container my-4">
-        <header>
-            <h2 class="display-1">Productos</h2>
-        </header>
-
-        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://picsum.photos/400/300?1" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Portátil Ipartek 15</h5>
-                        <p class="card-text">Portátil de 15" que tiene 16GB, 1TB, y NVIDIA 2070</p>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Pantalla de 15"</li>
-                            <li class="list-group-item">16GB de RAM</li>
-                            <li class="list-group-item">1TB de NVM</li>
-                            <li class="list-group-item">Gráfica NVIDIA RTX 2070</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer p-2 d-flex justify-content-between">
-                        <a class="stretched-link link-underline link-underline-opacity-0" href="detalle.html">Ver detalle</a>
-                        <span>1.234,56€</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <table class="table table-hover table-bordered table-striped">
+            <caption>Productos</caption>
+            <thead class="table-secondary">
+                <tr>
+                    <th class="text-end">Id</th>
+                    <th>Nombre</th>
+                    <th class="text-end">Precio</th>
+                    <th>OPCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="text-end">1</th>
+                    <td>Portátil</td>
+                    <td class="text-end">1.234,56€</td>
+                    <td>
+                        <a href="formulario.html" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="text-end">2</th>
+                    <td>Monitor</td>
+                    <td class="text-end">123,45€</td>
+                    <td>
+                        <a href="formulario.html" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="#" class="btn btn-sm btn-danger">Borrar</a>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot class="table-secondary">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <a href="formulario.html" class="btn btn-sm btn-primary">Añadir</a>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
     </main>
 
     <footer class="text-bg-primary p-2 fixed-bottom d-flex justify-content-between">

@@ -37,7 +37,8 @@
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2 text-bg-light" data-bs-theme="dark" type="search" placeholder="Buscar producto" aria-label="Buscar producto">
+                    <input class="form-control me-2 text-bg-light" data-bs-theme="dark" type="search"
+                        placeholder="Buscar producto" aria-label="Buscar producto">
                     <button class="btn btn-outline-light" type="submit">Buscar</button>
                 </form>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -57,31 +58,63 @@
     </nav>
 
     <main class="container my-4">
-        <header>
-            <h2 class="display-1">Productos</h2>
-        </header>
-
-        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://picsum.photos/400/300?1" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Portátil Ipartek 15</h5>
-                        <p class="card-text">Portátil de 15" que tiene 16GB, 1TB, y NVIDIA 2070</p>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Pantalla de 15"</li>
-                            <li class="list-group-item">16GB de RAM</li>
-                            <li class="list-group-item">1TB de NVM</li>
-                            <li class="list-group-item">Gráfica NVIDIA RTX 2070</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer p-2 d-flex justify-content-between">
-                        <a class="stretched-link link-underline link-underline-opacity-0" href="detalle.html">Ver detalle</a>
-                        <span>1.234,56€</span>
+        <form class="needs-validation" novalidate>
+            <div class="row mb-3">
+                <label for="id" class="col-sm-2 col-form-label">Id</label>
+                <div class="col-sm">
+                    <input type="number" min="0" class="form-control" id="id">
+                    <div class="invalid-feedback">
+                        El mínimo válido de id es 0
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="row mb-3">
+                <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm">
+                    <input type="text" required minlength="3" class="form-control" id="nombre">
+                    <div class="invalid-feedback">
+                        El nombre es obligatorio y debe tener como mínimo 3 letras
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="precio" class="col-sm-2 col-form-label">Precio</label>
+                <div class="col-sm">
+                    <input type="number" step=".01" min="0" required class="form-control" id="precio">
+                    <div class="invalid-feedback">
+                        El precio es obligatorio y debe ser igual o mayor que 0
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="offset-sm-2 col-sm">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+
+        </form>
+
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (() => {
+                'use strict'
+
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                const forms = document.querySelectorAll('.needs-validation')
+
+                // Loop over them and prevent submission
+                Array.from(forms).forEach(form => {
+                    form.addEventListener('submit', event => {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            })()
+        </script>
     </main>
 
     <footer class="text-bg-primary p-2 fixed-bottom d-flex justify-content-between">
