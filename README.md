@@ -9,11 +9,19 @@
 # Referencias
 
 - Referencia de etiquetas del WHATWG: https://html.spec.whatwg.org/multipage/#toc-semantics
+
 - Can I Use: https://caniuse.com
+
 - Position de MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/position
 - Referencia de Flex: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 - Referencia de Grid: https://css-tricks.com/snippets/css/complete-guide-grid/
 - Diapositivas de html5rocks: https://javierlete.github.io/slides.html5rocks.com/html5.html#landing-slide
+
+- JavaScript: https://es.javascript.info/
+- Tutorial de Uniwebsidad de JavaScript: https://uniwebsidad.com/libros/javascript
+
+# Recursos
+
 - Fonts de Google: https://fonts.google.com
 - Lorem Picsum: https://picsum.photos
 - FontAwesome: https://fontawesome.com/
@@ -29,3 +37,4 @@
 - Flexbox Froggy: https://flexboxfroggy.com/#es
 - Grid Garden: https://cssgridgarden.com/#es
 
+- CodeCombat: https://codecombat.com/
