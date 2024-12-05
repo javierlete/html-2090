@@ -2,25 +2,36 @@ console.log('CALCULADORA COMPLETA');
 
 let op1, op2, op;
 
+const main = document.querySelector('main');
+
+crearBotonera();
+
 const pantalla = document.querySelector('input');
 console.log(pantalla);
-
-const botones = document.querySelectorAll('button');
-console.log(botones);
-
-// for (let i = 0; i < botones.length; i++) {
-//     console.log(i, botones[i]);
-// }
-
-for (let boton of botones) {
-    console.log(boton);
-
-    boton.addEventListener('click', botonPulsado);
-}
 
 document.addEventListener('keypress', teclaPulsada);
 
 console.log('FIN');
+
+function crearBotonera() {
+    const etiquetas = [ 7, 8, 9, '/', 4, 5, 6, 'X', 1, 2, 3, '-', 'C', 0, '=', '+' ];
+
+    for(let etiqueta of etiquetas) {
+        const boton = document.createElement('button');
+
+        boton.innerText = etiqueta;
+
+        boton.addEventListener('click', botonPulsado);
+
+        if(!(etiqueta >= 0 && etiqueta <= 9)) {
+            boton.className = 'operacion';
+        }
+
+        console.log(boton);
+
+        main.appendChild(boton);
+    }
+}
 
 function teclaPulsada(evento) {
     const tecla = evento.key;
