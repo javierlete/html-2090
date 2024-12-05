@@ -18,7 +18,17 @@ for (let boton of botones) {
     boton.addEventListener('click', botonPulsado);
 }
 
+document.addEventListener('keypress', teclaPulsada);
+
 console.log('FIN');
+
+function teclaPulsada(evento) {
+    const tecla = evento.key;
+
+    console.log(tecla);
+
+    procesarEtiqueta(tecla);
+}
 
 function botonPulsado(evento) {
     console.log('PULSADO');
@@ -28,6 +38,10 @@ function botonPulsado(evento) {
 
     console.log(etiqueta);
 
+    procesarEtiqueta(etiqueta);
+}
+
+function procesarEtiqueta(etiqueta) {
     if (etiqueta >= '0' && etiqueta <= '9') {
         procesarNumero(etiqueta);
     } else {
@@ -45,10 +59,13 @@ function procesarOperacion(etiqueta) {
         case 'X':
         case '/':
             operacionAritmetica(etiqueta);
-
             break;
         case '=':
             operacionIgual();
+            break;
+        default:
+            console.error("No se esperaba la función " + etiqueta);
+            alert('Problema inesperado en la aplicación');
     }
 }
 
