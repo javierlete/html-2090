@@ -1,5 +1,20 @@
-[
-    { "id": 1, "nombre": "Portátil", "precio": 1234.56, "descripcion": "Este es el mejor portátil del mundo" },
-    { "id": 2, "nombre": "Monitor", "precio": 123.56 },
-    { "id": 3, "nombre": "Ratón", "precio": 12.56 }
-]
+{
+    "productos": [
+        {
+            "id": 1,
+            "nombre": "Portátil",
+            "precio": 1234.56,
+            "descripcion": "Este es el mejor portátil del mundo"
+        },
+        {
+            "id": 2,
+            "nombre": "Monitor",
+            "precio": 123.56
+        },
+        {
+            "id": 3,
+            "nombre": "Ratón",
+            "precio": 12.56
+        }
+    ]
+}

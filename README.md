@@ -38,3 +38,9 @@
 - Grid Garden: https://cssgridgarden.com/#es
 
 - CodeCombat: https://codecombat.com/
+
+# REST
+
+- NodeJS: https://nodejs.org/en/
+- ```npm install -g json-server@0.17.4```
+- ```json-server -w json/productos.json -s .```

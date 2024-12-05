@@ -2,12 +2,14 @@ window.addEventListener('DOMContentLoaded', documentoCargado);
 
 let productos, tabla, lista;
 
+const URL = 'http://localhost:3000/productos/';
+
 async function documentoCargado() {
     lista = document.querySelector('dl');
     tabla = document.querySelector('table');
     const tbody = document.querySelector('tbody');
 
-    const respuesta = await fetch('json/productos.json');
+    const respuesta = await fetch(URL);
     productos = await respuesta.json();
 
     console.log(productos);
@@ -29,10 +31,14 @@ async function documentoCargado() {
     }
 }
 
-function mostrarProducto(id) {
+async function mostrarProducto(id) {
     console.log(id);
 
-    const producto = { id, nombre: 'nombre' + id, precio: id * 5, descripcion: 'descripcion' + id };
+    lista.innerHTML = '';
+    lista.style.display = 'block';
+
+    const respuesta = await fetch(URL + id);
+    const producto = await respuesta.json();
 
     tabla.style.display = 'none';
 
@@ -44,4 +50,10 @@ function mostrarProducto(id) {
 
     lista.appendChild(dt);
     lista.appendChild(dd);
+}
+
+function verTabla() {
+    tabla.style.display = 'block';
+
+    lista.style.display = 'none';
 }
