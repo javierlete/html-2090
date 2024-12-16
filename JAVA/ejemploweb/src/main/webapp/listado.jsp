@@ -2,16 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="cabecera.jsp" %>
 
-<%@page import="pojos.Almacen"%>
-<%@page import="pojos.Monitor"%>
-
-<%
-Almacen almacen = new Almacen("Pruebas");
-
-almacen.guardarMonitor(new Monitor());
-almacen.guardarMonitor(new Monitor("HP", "5", 21, 1920, 1080));
-%>
-
 <% for(Monitor monitor: almacen.getMonitores()) { %>
 <dl>
 	<dt>Marca</dt>
