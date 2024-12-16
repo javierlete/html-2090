@@ -8,9 +8,9 @@ Almacen almacen = Globales.almacen;
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Ejemplo Web</title>
 </head>
 <body>
 	<header>
-		<h1>Super ejemplos de JSP</h1>
+		<h1>Ejemplos de JSP</h1>
 	</header>
