@@ -12,6 +12,7 @@ String pass = "";
 
 String sqlSelect = "SELECT * FROM monitores";
 String sqlInsert = "INSERT INTO monitores (marca, modelo, diagonal, anchoPixels, altoPixels) VALUES ('%s', '%s', %s, %s, %s);";
+String sqlDelete = "DELETE FROM monitores WHERE id=";
 
 Connection con = DriverManager.getConnection(url, user, pass);
 Statement st = con.createStatement();

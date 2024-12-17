@@ -3,6 +3,12 @@
 <%@ include file="/cabecera.jsp"%>
 
 <%
+String borrar = request.getParameter("borrar");
+
+if (borrar != null) {
+	st.executeUpdate(sqlDelete + borrar);
+}
+
 ResultSet rs = st.executeQuery(sqlSelect);
 
 while (rs.next()) {
@@ -18,6 +24,11 @@ while (rs.next()) {
 	<dd><%=rs.getString("anchoPixels")%></dd>
 	<dt>Alto en pixels</dt>
 	<dd><%=rs.getString("altoPixels")%></dd>
+	<dt>OPCIONES</dt>
+	<dd>
+		<a href="formulario.jsp?editar=<%=rs.getInt("id")%>">Editar</a> <a
+			href="listado.jsp?borrar=<%=rs.getInt("id")%>">Borrar</a>
+	</dd>
 </dl>
 <%
 }
