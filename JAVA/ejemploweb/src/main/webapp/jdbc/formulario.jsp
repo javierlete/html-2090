@@ -3,13 +3,22 @@
 <%@ include file="/cabecera.jsp"%>
 <%
 if (request.getMethod().equals("POST")) {
+	
 	String marca = request.getParameter("marca");
 	String modelo = request.getParameter("modelo");
 	int diagonal = Integer.parseInt(request.getParameter("diagonal"));
 	int ancho = Integer.parseInt(request.getParameter("ancho"));
 	int alto = Integer.parseInt(request.getParameter("alto"));
-
-	String sql = String.format(sqlInsert, marca, modelo, diagonal, ancho, alto);
+	String sId = request.getParameter("id");
+	
+	String sql;
+	
+	if(sId.isBlank()) {
+		sql = String.format(sqlInsert, marca, modelo, diagonal, ancho, alto);
+	} else {
+		int id = Integer.parseInt(sId);
+		sql = String.format(sqlUpdate, marca, modelo, diagonal, ancho, alto, id);
+	}
 
 	st.executeUpdate(sql);
 
@@ -30,6 +39,7 @@ if (editar != null) {
 
 
 <form method="post">
+	<input type="hidden" name="id" value="<%=valor("id")%>">
 	<input name="marca" placeholder="Marca"
 		value="<%=valor("marca")%>"> <input
 		name="modelo" placeholder="Modelo"
