@@ -10,7 +10,8 @@ String url = "jdbc:sqlite:/Users/javierlete/git/html-2090/JAVA/bases/bdd/almacen
 String user = "";
 String pass = "";
 
-String sql_select = "SELECT * FROM monitores";
+String sqlSelect = "SELECT * FROM monitores";
+String sqlInsert = "INSERT INTO monitores (marca, modelo, diagonal, anchoPixels, altoPixels) VALUES ('%s', '%s', %s, %s, %s);";
 
 Connection con = DriverManager.getConnection(url, user, pass);
 Statement st = con.createStatement();
