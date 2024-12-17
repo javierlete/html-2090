@@ -3,7 +3,7 @@
 <%@ include file="/cabecera.jsp"%>
 
 <%
-ResultSet rs = st.executeQuery(sql_select);
+ResultSet rs = st.executeQuery(sqlSelect);
 
 while (rs.next()) {
 %>
