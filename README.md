@@ -20,6 +20,8 @@
 - JavaScript: https://es.javascript.info/
 - Tutorial de Uniwebsidad de JavaScript: https://uniwebsidad.com/libros/javascript
 
+- Tutorial de SQL: https://www.w3schools.com/sql/
+
 # Recursos
 
 - Fonts de Google: https://fonts.google.com
