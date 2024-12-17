@@ -1,6 +1,20 @@
-<%@ page import="java.sql.*, pojos.Almacen, pojos.Monitor, pojos.Globales"%>
+<%@ page
+	import="java.sql.*, pojos.Almacen, pojos.Monitor, pojos.Globales"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%!ResultSet rs;
+
+	String valor(String campo) {
+		try {
+			if (rs != null) {
+				return rs.getString(campo);
+			} else {
+				return "";
+			}
+		} catch (SQLException e) {
+			return null;
+		}
+	}%>
 <%
 Almacen almacen = Globales.almacen;
 
@@ -11,6 +25,7 @@ String user = "";
 String pass = "";
 
 String sqlSelect = "SELECT * FROM monitores";
+String sqlSelectId = sqlSelect + " WHERE id=";
 String sqlInsert = "INSERT INTO monitores (marca, modelo, diagonal, anchoPixels, altoPixels) VALUES ('%s', '%s', %s, %s, %s);";
 String sqlDelete = "DELETE FROM monitores WHERE id=";
 

@@ -9,8 +9,12 @@ if (borrar != null) {
 	st.executeUpdate(sqlDelete + borrar);
 }
 
-ResultSet rs = st.executeQuery(sqlSelect);
+rs = st.executeQuery(sqlSelect);
+%>
 
+<a href="formulario.jsp">Añadir</a>
+
+<%
 while (rs.next()) {
 %>
 <dl>
