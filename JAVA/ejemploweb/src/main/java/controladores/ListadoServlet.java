@@ -38,23 +38,24 @@ public class ListadoServlet extends HttpServlet {
 			String url = "jdbc:sqlite:/Users/javierlete/git/html-2090/JAVA/bases/bdd/almacen.db";
 			String sqlSelect = "SELECT * FROM monitores";
 
-			Connection con = DriverManager.getConnection(url);
-			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery(sqlSelect);
+			ArrayList<Monitor> monitores;
+			
+			try (Connection con = DriverManager.getConnection(url);
+					Statement st = con.createStatement();
+					ResultSet rs = st.executeQuery(sqlSelect)) {
+				monitores = new ArrayList<Monitor>();
 
-			ArrayList<Monitor> monitores = new ArrayList<Monitor>();
-
-			while (rs.next()) {
-				Monitor monitor = new Monitor(rs.getInt("id"), rs.getString("marca"), rs.getString("modelo"),
-						rs.getInt("diagonal"), rs.getInt("anchoPixels"), rs.getInt("altoPixels"));
-				
-				monitores.add(monitor);
-			}
+				while (rs.next()) {
+					Monitor monitor = new Monitor(rs.getInt("id"), rs.getString("marca"), rs.getString("modelo"),
+							rs.getInt("diagonal"), rs.getInt("anchoPixels"), rs.getInt("altoPixels"));
+					
+					monitores.add(monitor);
+				}
 
 //	    	Empaquetar información para la siguiente vista
-			request.setAttribute("monitores", monitores);
-
-//	    	Pasar a la siguiente vista
+				request.setAttribute("monitores", monitores);
+			}
+			//	    	Pasar a la siguiente vista
 	    	request.getRequestDispatcher("vistas/listado.jsp").forward(request, response);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();

@@ -3,6 +3,7 @@ package controladores;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -19,10 +20,39 @@ public class FormularioServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		Recoger información de la petición
+		String sId = request.getParameter("id");
+		
 //	    Convertir información recibida
+		Integer id = sId == null ? null : Integer.parseInt(sId);
+		
 //	    Empaquetar en modelo
 //	    Ejecutar código de negocio
-//	    Empaquetar información para la siguiente vista
+		
+		if(id != null) {
+			try {
+				Class.forName("org.sqlite.JDBC");
+
+				String url = "jdbc:sqlite:/Users/javierlete/git/html-2090/JAVA/bases/bdd/almacen.db";
+
+				String sqlSelectId = "SELECT * FROM monitores WHERE id=" + id;
+				
+				try (Connection con = DriverManager.getConnection(url);
+						Statement st = con.createStatement();
+						ResultSet rs = st.executeQuery(sqlSelectId)) {
+					if (rs.next()) {
+						Monitor monitor = new Monitor(rs.getInt("id"), rs.getString("marca"), rs.getString("modelo"),
+								rs.getInt("diagonal"), rs.getInt("anchoPixels"), rs.getInt("altoPixels"));
+						
+//		    		Empaquetar información para la siguiente vista
+						request.setAttribute("monitor", monitor);
+					}
+				}
+
+			} catch (ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 //	    Pasar a la siguiente vista
 	    request.getRequestDispatcher("vistas/formulario.jsp").forward(request, response);
 	}
@@ -54,17 +84,17 @@ public class FormularioServlet extends HttpServlet {
 			String sqlInsert = "INSERT INTO monitores (marca, modelo, diagonal, anchoPixels, altoPixels) VALUES ('%s', '%s', %s, %s, %s)";
 			String sqlUpdate = "UPDATE monitores SET marca='%s',modelo='%s',diagonal=%s,anchoPixels=%s,altoPixels=%s WHERE id=%s";
 
-			Connection con = DriverManager.getConnection(url);
-			Statement st = con.createStatement();
-
-			String sql;
-			
-			if(monitor.getId() == null) {
-				sql = String.format(sqlInsert, monitor.getMarca(), monitor.getModelo(), monitor.getDiagonalPulgadas(), monitor.getAnchoPixels(), monitor.getAltoPixels());
-				st.executeUpdate(sql);
-			} else {
-				sql = String.format(sqlUpdate, monitor.getMarca(), monitor.getModelo(), monitor.getDiagonalPulgadas(), monitor.getAnchoPixels(), monitor.getAltoPixels(), monitor.getId());
-				st.executeUpdate(sql);
+			try (Connection con = DriverManager.getConnection(url);
+					Statement st = con.createStatement()) {
+				String sql;
+				
+				if(monitor.getId() == null) {
+					sql = String.format(sqlInsert, monitor.getMarca(), monitor.getModelo(), monitor.getDiagonalPulgadas(), monitor.getAnchoPixels(), monitor.getAltoPixels());
+					st.executeUpdate(sql);
+				} else {
+					sql = String.format(sqlUpdate, monitor.getMarca(), monitor.getModelo(), monitor.getDiagonalPulgadas(), monitor.getAnchoPixels(), monitor.getAltoPixels(), monitor.getId());
+					st.executeUpdate(sql);
+				}
 			}
 			
 //	    	Empaquetar información para la siguiente vista

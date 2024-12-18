@@ -9,6 +9,8 @@
 ArrayList<Monitor> monitores = (ArrayList<Monitor>) request.getAttribute("monitores");
 %>
 
+<p><%=monitores %></p>
+
 <table>
 	<thead>
 		<tr>
@@ -18,6 +20,7 @@ ArrayList<Monitor> monitores = (ArrayList<Monitor>) request.getAttribute("monito
 			<th>Diagonal</th>
 			<th>Ancho en pixels</th>
 			<th>Alto en pixels</th>
+			<th>OPCIONES</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -29,9 +32,21 @@ ArrayList<Monitor> monitores = (ArrayList<Monitor>) request.getAttribute("monito
 				<td><%=monitor.getDiagonalPulgadas() %></td>
 				<td><%=monitor.getAnchoPixels() %></td>
 				<td><%=monitor.getAltoPixels() %></td>
+				<td>
+					<a href="formulario?id=<%=monitor.getId()%>">Editar</a>
+					<a href="borrar?id=<%=monitor.getId()%>">Borrar</a>
+				</td>
 			</tr>
 		<% } %>
 	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="6"></td>
+			<td>
+				<a href="formulario">Añadir</a>
+			</td>
+		</tr>
+	</tfoot>
 </table>
 
 <%@ include file="/vistas/includes/pie.jsp"%>
