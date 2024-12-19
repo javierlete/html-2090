@@ -28,20 +28,16 @@ public class BorrarServlet extends HttpServlet {
 //	    Ejecutar código de negocio
 
 		try {
-			Class.forName("org.sqlite.JDBC");
-
-			String url = "jdbc:sqlite:/Users/javierlete/git/html-2090/JAVA/bases/bdd/almacen.db";
-
-			String sqlDelete = "DELETE FROM monitores WHERE id=" + id;
-
-			try (Connection con = DriverManager.getConnection(url); Statement st = con.createStatement();) {
-				st.executeUpdate(sqlDelete);
+			Class.forName(Globales.DRIVER);
+			
+			try (Connection con = DriverManager.getConnection(Globales.URL); Statement st = con.createStatement();) {
+				st.executeUpdate(Globales.SQL_DELETE + id);
 			}
 
 //		    Pasar a la siguiente vista
 			response.sendRedirect("listado");
 
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
