@@ -14,7 +14,9 @@ ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
 	<div class="col">
 		<div class="card h-100">
 			<div class="card-body">
-				<h5 class="card-title"><%=video.getTitulo() %></h5>
+				<h5 class="card-title">
+					<a href="detalle?id=<%=video.getId()%>"><%=video.getTitulo() %></a>
+				</h5>
 				<div class="card-text">
 					<div class="ratio ratio-16x9">
 						<iframe
