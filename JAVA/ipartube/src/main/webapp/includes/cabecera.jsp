@@ -27,9 +27,9 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link" href="index">Principal</a></li>
 				</ul>
-				<form class="d-flex" role="search">
+				<form action="buscar" class="d-flex" role="search">
 					<input class="form-control me-2" type="search" placeholder="Buscar"
-						aria-label="Buscar">
+						aria-label="Buscar" name="texto">
 					<button class="btn btn-outline-light" type="submit">Buscar</button>
 				</form>
 			</div>
