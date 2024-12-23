@@ -1,0 +1,20 @@
+// EJECUTAR CÓDIGO DE BASE DE DATOS
+// String sql = "SELECT * FROM tabla";
+
+// ArrayList<Clase> objetos = new ArrayList<Clase>();
+
+// try (
+// Connection con = BaseDeDatos.conectar();
+// ResultSet rs = BaseDeDatos.consultar(con, sql);
+// ) {
+// Clase fila = null;
+// 		while(rs.next()) {
+//			fila = new Clase(rs.getInt("id"), rs.getString("nombre"), ...);
+// 			objetos.add(fila);
+//		}
+// 		
+// } catch(SQLException e) {
+// 		e.printStackTrace();
+//		return;
+// }
+// FIN EJECUTAR CÓDIGO DE BASE DE DATOS

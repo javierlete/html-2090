@@ -1,0 +1,12 @@
+// EJECUTAR CÓDIGO DE BASE DE DATOS
+// String sql = "DELETE FROM tabla WHERE id=" + id;
+
+// try (
+// Connection con = BaseDeDatos.conectar();
+// ) {
+// 		BaseDeDatos.cambiar(con, sql);
+// } catch(SQLException e) {
+// 		e.printStackTrace();
+//		return;
+// }
+// FIN EJECUTAR CÓDIGO DE BASE DE DATOS

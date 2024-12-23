@@ -1,0 +1,21 @@
+// RECOGER DATOS DE PETICIÓN
+// String sId = request.getParameter("id");
+
+// CONVERTIR DATOS DE PETICIÓN
+// Integer id = Integer.parseInt(sId);
+
+// CREAR UN OBJETO CON LOS DATOS RECIBIDOS
+// Clase objeto = new Clase(id, nombre, ...);
+
+// EJECUTAR BASE DE DATOS
+varios.txt
+uno.txt
+insertar.txt
+modificar.txt
+borrar.txt
+
+// ENVIAR OBJETOS PARA VISUALIZACIÓN
+// request.setAttribute("objetos", objetos);
+
+// PASAR A LA VISUALIZACIÓN
+// request.getRequestDispatcher("vista.jsp").forward(request, response);

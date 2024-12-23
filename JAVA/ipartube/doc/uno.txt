@@ -1,0 +1,18 @@
+// EJECUTAR CÓDIGO DE BASE DE DATOS
+// String sql = "SELECT * FROM tabla WHERE id=" + id;
+
+// Clase fila = null;
+
+// try (
+// Connection con = BaseDeDatos.conectar();
+// ResultSet rs = BaseDeDatos.consultar(con, sql);
+// ) {
+// 		if(rs.next()) {
+//			fila = new Clase(rs.getInt("id"), rs.getString("nombre"), ...);
+//		}
+// 		
+// } catch(SQLException e) {
+// 		e.printStackTrace();
+//		return;
+// }
+// FIN EJECUTAR CÓDIGO DE BASE DE DATOS

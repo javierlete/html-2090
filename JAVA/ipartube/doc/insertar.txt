@@ -1,0 +1,13 @@
+// EJECUTAR CÓDIGO DE BASE DE DATOS
+// String patron = "INSERT INTO tabla (campoTexto, campoNumero, ...) VALUES ('%s', %s, ...)";
+// String sql = String.format(patron, datoTexto, datoNumero, ...);
+
+// try (
+// Connection con = BaseDeDatos.conectar();
+// ) {
+// 		BaseDeDatos.cambiar(con, sql);
+// } catch(SQLException e) {
+// 		e.printStackTrace();
+//		return;
+// }
+// FIN EJECUTAR CÓDIGO DE BASE DE DATOS

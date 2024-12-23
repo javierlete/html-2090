@@ -1,0 +1,13 @@
+// EJECUTAR CÓDIGO DE BASE DE DATOS
+// String patron = "UPDATE tabla SET campoTexto='%s', campoNumero=%s, ... WHERE id=%s";
+// String sql = String.format(patron, datoTexto, datoNumero, ..., id);
+
+// try (
+// Connection con = BaseDeDatos.conectar();
+// ) {
+// 		BaseDeDatos.cambiar(con, sql);
+// } catch(SQLException e) {
+// 		e.printStackTrace();
+//		return;
+// }
+// FIN EJECUTAR CÓDIGO DE BASE DE DATOS
