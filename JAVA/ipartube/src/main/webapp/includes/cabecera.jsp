@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+String email = session.getAttribute("email") != null ? (String) session.getAttribute("email") : "";
+%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,7 +17,8 @@
 </head>
 <body>
 
-	<nav class="mb-4 sticky-top navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+	<nav class="mb-4 sticky-top navbar navbar-expand-lg bg-dark"
+		data-bs-theme="dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="index">Ipartube</a>
 			<button class="navbar-toggler" type="button"
@@ -32,6 +36,24 @@
 						aria-label="Buscar" name="texto">
 					<button class="btn btn-outline-light" type="submit">Buscar</button>
 				</form>
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<%
+					if (email.isBlank()) {
+					%>
+					<li class="nav-item"><a class="nav-link" href="login">Inicio
+							sesión</a></li>
+					<%
+					} else {
+					%>
+					
+					<li class="nav-item"><a class="nav-link" href="admin-videos">Administración</a></li>
+					<li class="navbar-text"><%=email%></li>
+					<li class="nav-item"><a class="nav-link" href="logout">Cerrar
+							sesión</a></li>
+					<%
+					}
+					%>
+				</ul>
 			</div>
 		</div>
 	</nav>
