@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import ipartube.modelos.Usuario;
 import ipartube.modelos.Video;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -21,9 +22,9 @@ public class AdminVideoServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 
-		String email = (String) session.getAttribute("email");
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
 
-		if (email == null) {
+		if (usuario == null || !"ADMIN".equals(usuario.getRol())) {
 			request.setAttribute("error", "Tienes que loguearte para acceder a administración");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
