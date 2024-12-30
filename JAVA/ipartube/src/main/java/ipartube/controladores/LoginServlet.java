@@ -1,7 +1,11 @@
 package ipartube.controladores;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import ipartube.modelos.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -24,23 +28,36 @@ public class LoginServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 
-		// Hardcoded
-		if("javier@email.net".equals(email) && "javier".equals(password)) {
-			HttpSession session = request.getSession();
-			
-			session.setAttribute("email", email);
-			
-			// PASAR A LA VISUALIZACIÓN
-			response.sendRedirect("admin-videos");
-		} else {
-			// ENVIAR OBJETOS PARA VISUALIZACIÓN
-			request.setAttribute("error", "El usuario o la contraseña son incorrectos");
-			
-			// PASAR A LA VISUALIZACIÓN
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
+		String patron = "SELECT * FROM usuarios WHERE email='%s' AND password='%s'";
+		String sql = String.format(patron, email, password);
+
+		Usuario usuario;
+		try (Connection con = BaseDeDatos.conectar();
+				ResultSet rs = BaseDeDatos.consultar(con, sql)) {
+			usuario = null;
+
+			if (rs.next()) {
+				usuario = new Usuario(rs.getInt("id"), rs.getString("nombre"), rs.getString("email"),
+						rs.getString("password"), rs.getString("rol"));
+			}
+
+			if (usuario != null) {
+				HttpSession session = request.getSession();
+
+				session.setAttribute("usuario", usuario);
+
+				// PASAR A LA VISUALIZACIÓN
+				response.sendRedirect("admin-videos");
+			} else {
+				// ENVIAR OBJETOS PARA VISUALIZACIÓN
+				request.setAttribute("error", "El usuario o la contraseña son incorrectos");
+
+				// PASAR A LA VISUALIZACIÓN
+				request.getRequestDispatcher("/login.jsp").forward(request, response);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-
-
 
 	}
 
