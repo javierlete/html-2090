@@ -32,8 +32,7 @@ public class LoginServlet extends HttpServlet {
 		String sql = String.format(patron, email, password);
 
 		Usuario usuario;
-		try (Connection con = BaseDeDatos.conectar();
-				ResultSet rs = BaseDeDatos.consultar(con, sql)) {
+		try (Connection con = BaseDeDatos.conectar(); ResultSet rs = BaseDeDatos.consultar(con, sql)) {
 			usuario = null;
 
 			if (rs.next()) {
@@ -47,7 +46,11 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("usuario", usuario);
 
 				// PASAR A LA VISUALIZACIÓN
-				response.sendRedirect("admin-videos");
+				if ("ADMIN".equals(usuario.getRol())) {
+					response.sendRedirect("admin-videos");
+				} else {
+					response.sendRedirect("index");
+				}
 			} else {
 				// ENVIAR OBJETOS PARA VISUALIZACIÓN
 				request.setAttribute("error", "El usuario o la contraseña son incorrectos");
