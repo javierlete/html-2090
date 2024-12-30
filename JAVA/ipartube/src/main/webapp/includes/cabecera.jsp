@@ -1,7 +1,8 @@
+<%@page import="ipartube.modelos.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-String email = session.getAttribute("email") != null ? (String) session.getAttribute("email") : "";
+Usuario usuario = (Usuario) session.getAttribute("usuario");
 %>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,16 +39,19 @@ String email = session.getAttribute("email") != null ? (String) session.getAttri
 				</form>
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<%
-					if (email.isBlank()) {
+					if (usuario == null) {
 					%>
 					<li class="nav-item"><a class="nav-link" href="login">Inicio
 							sesión</a></li>
 					<%
 					} else {
+					if ("ADMIN".equals(usuario.getRol())) {
 					%>
-					
 					<li class="nav-item"><a class="nav-link" href="admin-videos">Administración</a></li>
-					<li class="navbar-text"><%=email%></li>
+					<%
+					}
+					%>
+					<li class="navbar-text"><%=usuario.getNombre()%></li>
 					<li class="nav-item"><a class="nav-link" href="logout">Cerrar
 							sesión</a></li>
 					<%
