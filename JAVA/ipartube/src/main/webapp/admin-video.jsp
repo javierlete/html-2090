@@ -11,6 +11,7 @@ Video video = (Video)request.getAttribute("video");
 	<p><%=video %></p>
 
 	<form action="admin-video" method="post">
+		<input type="hidden" name="id" value="<%=video != null ? video.getId() : "" %>">
 		<div class="row mb-3">
 			<label for="titulo" class="col-sm-2 col-form-label">Título</label>
 			<div class="col-sm-10">

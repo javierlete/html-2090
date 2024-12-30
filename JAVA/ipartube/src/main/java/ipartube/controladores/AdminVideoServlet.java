@@ -56,15 +56,22 @@ public class AdminVideoServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// String sId = request.getParameter("id");
+		String sId = request.getParameter("id");
 		String titulo = request.getParameter("titulo");
 		String url = request.getParameter("url");
 		String descripcion = request.getParameter("descripcion");
 
-		// Integer id = Integer.parseInt(sId);
+		Integer id = sId.isBlank() ? null : Integer.parseInt(sId);
 
-		String patron = "INSERT INTO videos (titulo, descripcion, url) VALUES ('%s', '%s', '%s')";
-		String sql = String.format(patron, titulo, descripcion, url);
+		String sql;
+
+		if (id == null) {
+			String patron = "INSERT INTO videos (titulo, descripcion, url) VALUES ('%s', '%s', '%s')";
+			sql = String.format(patron, titulo, descripcion, url);
+		} else {
+			String patron = "UPDATE videos SET titulo='%s', descripcion='%s', url='%s' WHERE id=%s";
+			sql = String.format(patron, titulo, descripcion, url, id);
+		}
 
 		try (Connection con = BaseDeDatos.conectar();) {
 			BaseDeDatos.cambiar(con, sql);
