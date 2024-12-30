@@ -6,14 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import ipartube.modelos.Usuario;
 import ipartube.modelos.Video;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/admin-videos")
 public class AdminVideosServlet extends HttpServlet {
@@ -21,13 +19,7 @@ public class AdminVideosServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		
-		Usuario usuario = (Usuario) session.getAttribute("usuario");
-
-		if (usuario == null || !"ADMIN".equals(usuario.getRol())) {
-			request.setAttribute("error", "Tienes que loguearte para acceder a administración");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+		if(!Autorizacion.autorizar(request, response)) {
 			return;
 		}
 		
