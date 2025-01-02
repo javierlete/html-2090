@@ -1,9 +1,13 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="ipartube.modelos.Video"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/includes/cabecera.jsp"%>
 <%
 Video video = (Video)request.getAttribute("video");
+
+@SuppressWarnings("unchecked")
+ArrayList<Usuario> usuarios = (ArrayList<Usuario>)request.getAttribute("usuarios");
 %>
 
 <main class="container">
@@ -12,6 +16,17 @@ Video video = (Video)request.getAttribute("video");
 
 	<form action="admin-video" method="post">
 		<input type="hidden" name="id" value="<%=video != null ? video.getId() : "" %>">
+		<div class="row mb-3">
+			<label for="usuario" class="col-sm-2 col-form-label">Usuario</label>
+			<div class="col-sm-10">
+				<select class="form-select" name="usuario">
+					<% for(Usuario u: usuarios) { %>
+						<option <%=u.getId()==video.getUsuario().getId() ? "selected":  "" %> value="<%=u.getId()%>"><%=u.getNombre() %></option>
+					<% } %>
+				</select>
+			</div>
+		</div>
+		
 		<div class="row mb-3">
 			<label for="titulo" class="col-sm-2 col-form-label">Título</label>
 			<div class="col-sm-10">
