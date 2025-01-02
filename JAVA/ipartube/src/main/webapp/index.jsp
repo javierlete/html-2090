@@ -18,6 +18,7 @@ ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
 					<h5 class="card-title">
 						<a href="detalle?id=<%=video.getId()%>"><%=video.getTitulo()%></a>
 					</h5>
+					<p class="card-text"><%=video.getUsuario().getNombre() %></p>
 					<div class="card-text">
 						<div class="ratio ratio-16x9">
 							<iframe src="<%=video.getUrl()%>" title="YouTube video player"
