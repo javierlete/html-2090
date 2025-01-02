@@ -19,8 +19,9 @@ ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
 		<div class="col">
 			<div class="card h-100">
 				<div class="card-body">
-					<h5 class="card-title">
+					<h5 class="card-title d-flex">
 						<a href="detalle?id=<%=video.getId()%>"><%=video.getTitulo()%></a>
+						<a class="ms-auto btn btn-danger" href="borrar?id=<%=video.getId() %>">X</a>
 					</h5>
 					<div class="card-text">
 						<div class="ratio ratio-16x9">
