@@ -5,6 +5,8 @@ public class Video {
 	private String titulo;
 	private String descripcion;
 	private String url;
+	
+	private Usuario usuario;
 
 	// Source / Generate Constructor using Fields...
 	public Video(Integer id, String titulo, String descripcion, String url) {
@@ -46,6 +48,14 @@ public class Video {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	// Source / Generate toString()...
