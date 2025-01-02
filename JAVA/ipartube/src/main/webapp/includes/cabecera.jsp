@@ -51,7 +51,11 @@ Usuario usuario = (Usuario) session.getAttribute("usuario");
 					<%
 					}
 					%>
-					<li class="navbar-text"><%=usuario.getNombre()%></li>
+					<li class="nav-item">
+						<a class="nav-link" href="usuario?id=<%=usuario.getId() %>">
+							<%=usuario.getNombre()%>
+						</a>
+					</li>
 					<li class="nav-item"><a class="nav-link" href="logout">Cerrar
 							sesión</a></li>
 					<%
