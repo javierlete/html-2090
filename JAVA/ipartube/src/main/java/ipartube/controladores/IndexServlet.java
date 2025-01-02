@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import ipartube.modelos.Usuario;
 import ipartube.modelos.Video;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,7 +20,7 @@ public class IndexServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String sql = "SELECT * FROM videos";
+		String sql = "SELECT * FROM videos v JOIN usuarios u ON v.id_usuario = u.id;";
 
 		ArrayList<Video> videos = new ArrayList<Video>();
 
@@ -27,9 +28,17 @@ public class IndexServlet extends HttpServlet {
 
 			Video video;
 
+			Usuario usuario;
+
 			while (rs.next()) {
+				usuario = new Usuario(rs.getInt("id_usuario"), rs.getString("nombre"), rs.getString("email"),
+						rs.getString("password"), rs.getString("rol"));
+
 				video = new Video(rs.getInt("id"), rs.getString("titulo"), rs.getString("descripcion"),
 						rs.getString("url"));
+				
+				video.setUsuario(usuario);
+				
 				videos.add(video);
 			}
 
