@@ -13,6 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/index")
 public class IndexServlet extends HttpServlet {
@@ -36,9 +37,9 @@ public class IndexServlet extends HttpServlet {
 
 				video = new Video(rs.getInt("id"), rs.getString("titulo"), rs.getString("descripcion"),
 						rs.getString("url"));
-				
+
 				video.setUsuario(usuario);
-				
+
 				videos.add(video);
 			}
 
@@ -49,5 +50,27 @@ public class IndexServlet extends HttpServlet {
 
 		request.setAttribute("videos", videos);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
+
+		String titulo = request.getParameter("titulo");
+		String url = request.getParameter("url");
+		String descripcion = request.getParameter("descripcion");
+
+		String patron = "INSERT INTO videos (titulo, url, descripcion, id_usuario) VALUES ('%s', '%s', '%s', %s)";
+		
+		String sql = String.format(patron, titulo, url, descripcion, usuario.getId());
+		
+		try (Connection con = BaseDeDatos.conectar()) {
+			BaseDeDatos.cambiar(con, sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		response.sendRedirect("index");
 	}
 }

@@ -18,7 +18,7 @@ ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
 					<h5 class="card-title">
 						<a href="detalle?id=<%=video.getId()%>"><%=video.getTitulo()%></a>
 					</h5>
-					<p class="card-text"><%=video.getUsuario().getNombre() %></p>
+					<p class="card-text"><%=video.getUsuario().getNombre()%></p>
 					<div class="card-text">
 						<div class="ratio ratio-16x9">
 							<iframe src="<%=video.getUrl()%>" title="YouTube video player"
@@ -28,6 +28,32 @@ ArrayList<Video> videos = (ArrayList<Video>) request.getAttribute("videos");
 					</div>
 					<p class="card-text"><%=video.getDescripcion()%></p>
 				</div>
+			</div>
+		</div>
+		<%
+		}
+		%>
+		<%
+		if (usuario != null) {
+		%>
+		<div class="col">
+			<div class="card h-100">
+				<form action="index" method="post" class="card-body">
+					<h5 class="card-title">
+						<input class="form-control" name="titulo"
+							placeholder="Título para el nuevo vídeo">
+					</h5>
+					<p class="card-text"><%=usuario.getNombre()%></p>
+					<div class="card-text">
+						<input class="form-control" name="url"
+							placeholder="URL del nuevo video">
+					</div>
+					<p class="card-text">
+						<textarea class="form-control" name="descripcion"
+							placeholder="Descripción del nuevo video"></textarea>
+					</p>
+					<button class="btn btn-secondary">Guardar</button>
+				</form>
 			</div>
 		</div>
 		<%
