@@ -15,7 +15,10 @@ Video video = (Video) request.getAttribute("video");
 		</div>
 		<div class="card-body">
 			<h5 class="card-title"><%=video.getTitulo()%></h5>
-			<p class="card-text"><%=video.getUsuario().getNombre() %>
+			<p class="card-text">
+				<a href="usuario?id=<%=video.getUsuario().getId()%>"> <%=video.getUsuario().getNombre()%>
+				</a>
+			</p>
 			<p class="card-text"><%=video.getDescripcion()%></p>
 		</div>
 	</div>
